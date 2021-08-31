@@ -17,7 +17,6 @@ class App extends React.Component {
       .catch(err => console.log(err))
   }
   
-  
   // handleClick() {
   //   axios.get('https://api.github.com/users/cyberkade/followers')
   //   .then(res => console.log("Followers Data", res.data))
