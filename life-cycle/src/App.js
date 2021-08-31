@@ -14,10 +14,9 @@ class App extends React.Component {
       .then(res => this.setState({...this.state, userData: [...this.state.userData, res.data]}))
     axios.get('https://api.github.com/users/cyberkade/followers')
       .then(res => res.data.forEach(follower => this.setState({...this.state, userData: [...this.state.userData, follower]})))
-      .then(res => res.data.forEach(follower => this.setState({...this.state, followers: [...this.state.followers, follower.login]})))
-      // .then(res => this.setState({...this.state, userData: [...this.state.userData, res.data]}))
       .catch(err => console.log(err))
   }
+  
   
   // handleClick() {
   //   axios.get('https://api.github.com/users/cyberkade/followers')
@@ -28,25 +27,16 @@ class App extends React.Component {
   //   .catch(err => console.log(err))
   // }
 
-  // fetchUpdatedData() {
-  //   axios.get(`https://api.github.com/users/${}`)
-  //   .then(res => this.setState({...this.state, userData: [...this.state.userData, res.data]}))
-  //   .catch(err => console.log(err))
-  // }
-
   render () {
     return <div className="App">
       <header className="App-header">
+        {console.log(this.state.userData)}
         {this.state.userData.map( (user, idx) => 
         <Card
-          handleClick={this.handleClick}
           key={idx}
-          name={user.name}
           login={user.login}
           url={user['avatar_url']}
           link={user['html_url']}
-          followers={user.followers}
-          following={user.following}
         />)}
       </header>
     </div>
