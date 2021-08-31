@@ -48,7 +48,6 @@ class App extends React.Component {
           followers={user.followers}
           following={user.following}
         />)}
-        <button onClick={ () => this.handleClick()} >Show More</button>
       </header>
     </div>
   };
